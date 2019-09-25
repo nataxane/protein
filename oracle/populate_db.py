@@ -79,7 +79,7 @@ def populate_producers(conn):
             items.append(item)
             rows.append((name, item, cities_array))
 
-        cur.executemany("INSERT INTO producers(p_name, p_item, cities) VALUES (:1, :2, :3)", rows)
+        cur.executemany("INSERT INTO producers(p_name, item, cities) VALUES (:1, :2, :3)", rows)
         conn.commit()
         print "{}: added {} rows to 'producers'".format(datetime.datetime.now(), BATCH_SIZE * (i + 1))
 
